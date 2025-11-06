@@ -1,0 +1,69 @@
+{
+  "name": "codemie-docs",
+  "version": "1.0.0",
+  "description": "AI/Run CodeMie Platform Documentation",
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:markdown",
+    "lint:eslint": "eslint . --max-warnings 0",
+    "lint:prettier": "prettier --check .",
+    "lint:markdown": "markdownlint-cli2 \"**/*.md\" \"#node_modules\" \"#build\"",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "format:eslint": "eslint . --fix",
+    "format:prettier": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run typecheck && npm run lint && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codemie-ai/docs.git"
+  },
+  "keywords": [
+    "documentation",
+    "AI",
+    "CodeMie",
+    "developer-tools"
+  ],
+  "author": "AI/Run CodeMie Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codemie-ai/docs/issues"
+  },
+  "homepage": "https://github.com/codemie-ai/docs#readme",
+  "engines": {
+    "node": ">=18.0"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.9.2",
+    "@docusaurus/types": "^3.9.2",
+    "@easyops-cn/docusaurus-search-local": "^0.52.1",
+    "clsx": "^2.1.1",
+    "docusaurus-plugin-image-zoom": "^3.0.1",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "markdownlint-cli2": "^0.18.1",
+    "prettier": "^3.6.2",
+    "typescript-eslint": "^8.46.3"
+  }
+}

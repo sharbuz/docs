@@ -1,0 +1,111 @@
+name: Documentation Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  commit-and-pr-validation:
+    name: Commit & PR Validation
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    env:
+      VALIDATION_PATTERN: '^((EPMCDME)-\d+:\s[A-Z][a-z]*.*|Revert "(EPMCDME)-\d+:\s[A-Z][a-z]*.*)$'
+      MAX_LENGTH: '300'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 2
+
+      - name: Validate commit message
+        run: |
+          python3 .github/scripts/validate_commit.py \
+            --pattern "$VALIDATION_PATTERN" \
+            --max-length $MAX_LENGTH \
+            --verbose
+
+      - name: Validate PR title
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 .github/scripts/validate_pr_title.py \
+            --pattern "$VALIDATION_PATTERN" \
+            --max-length $MAX_LENGTH \
+            --pr-number ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --verbose
+
+  linters:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    needs: commit-and-pr-validation
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TypeScript type checking
+        run: npm run typecheck
+
+      - name: Run ESLint
+        run: npm run lint:eslint
+
+      - name: Run Prettier check
+        run: npm run lint:prettier
+
+      - name: Run Markdown linter
+        run: npm run lint:markdown
+
+      - name: Linting summary
+        if: success()
+        run: |
+          echo "All linting checks passed successfully!"
+          echo "- TypeScript type checking: PASSED"
+          echo "- ESLint: PASSED"
+          echo "- Prettier: PASSED"
+          echo "- Markdown linting: PASSED"
+
+  build:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    needs: linters
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Build summary
+        if: success()
+        run: |
+          echo "Documentation build completed successfully!"
+          echo "- Build: PASSED"

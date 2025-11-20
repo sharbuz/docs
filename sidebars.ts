@@ -88,12 +88,12 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'doc',
-              id: 'deployment-guide/aws/post-installation',
+              id: 'deployment-guide/aws/post-installation/post-installation-overview',
               label: 'Post-Installation',
             },
             {
               type: 'doc',
-              id: 'deployment-guide/aws/ai-models-integration',
+              id: 'deployment-guide/aws/ai-models-integration/ai-models-overview',
               label: 'AI Models Integration',
             },
             {
@@ -103,7 +103,7 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'doc',
-              id: 'deployment-guide/aws/extensions',
+              id: 'deployment-guide/aws/extensions/extensions-overview',
               label: 'Extensions',
             },
           ],
@@ -379,13 +379,106 @@ const sidebars: SidebarsConfig = {
               collapsed: true,
               items: [
                 'deployment-guide/aws/components-deployment/scripted-deployment',
-                'deployment-guide/aws/components-deployment/manual-deployment',
+                {
+                  type: 'category',
+                  label: 'Manual Deployment',
+                  link: {
+                    type: 'doc',
+                    id: 'deployment-guide/aws/components-deployment/manual-deployment/manual-deployment-overview',
+                  },
+                  collapsed: true,
+                  items: [
+                    'deployment-guide/aws/components-deployment/manual-deployment/storage-and-ingress',
+                    'deployment-guide/aws/components-deployment/manual-deployment/data-layer',
+                    'deployment-guide/aws/components-deployment/manual-deployment/security-and-identity',
+                    'deployment-guide/aws/components-deployment/manual-deployment/plugin-engine',
+                    'deployment-guide/aws/components-deployment/manual-deployment/core-components',
+                    'deployment-guide/aws/components-deployment/manual-deployment/observability',
+                  ],
+                },
               ],
             },
-            'deployment-guide/aws/post-installation',
-            'deployment-guide/aws/ai-models-integration',
+            {
+              type: 'category',
+              label: 'Post-Installation',
+              link: {
+                type: 'doc',
+                id: 'deployment-guide/aws/post-installation/post-installation-overview',
+              },
+              collapsed: true,
+              items: [
+                {
+                  type: 'category',
+                  label: 'User Configuration',
+                  link: {
+                    type: 'doc',
+                    id: 'deployment-guide/aws/post-installation/user-configuration/user-configuration-overview',
+                  },
+                  collapsed: true,
+                  items: [
+                    'deployment-guide/aws/post-installation/user-configuration/initial-realm-setup',
+                    {
+                      type: 'category',
+                      label: 'User Provisioning',
+                      collapsed: true,
+                      items: [
+                        'deployment-guide/aws/post-installation/user-configuration/user-provisioning/manual-creation',
+                        'deployment-guide/aws/post-installation/user-configuration/user-provisioning/keycloak-assistant',
+                        'deployment-guide/aws/post-installation/user-configuration/user-provisioning/keycloak-entra-id',
+                        'deployment-guide/aws/post-installation/user-configuration/user-provisioning/entra-id-only',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'User Authorization',
+                      link: {
+                        type: 'doc',
+                        id: 'deployment-guide/aws/post-installation/user-configuration/user-authorization/user-authorization-overview',
+                      },
+                      collapsed: true,
+                      items: [
+                        'deployment-guide/aws/post-installation/user-configuration/user-authorization/assign-roles',
+                        'deployment-guide/aws/post-installation/user-configuration/user-authorization/assign-attributes',
+                      ],
+                    },
+                    'deployment-guide/aws/post-installation/user-configuration/platform-administration',
+                  ],
+                },
+                'deployment-guide/aws/post-installation/ui-customization',
+                'deployment-guide/aws/post-installation/datasources-configuration',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'AI Models Integration',
+              link: {
+                type: 'doc',
+                id: 'deployment-guide/aws/ai-models-integration/ai-models-overview',
+              },
+              collapsed: true,
+              items: [
+                'deployment-guide/aws/ai-models-integration/aws-bedrock',
+                'deployment-guide/aws/ai-models-integration/azure-openai',
+              ],
+            },
             'deployment-guide/aws/update',
-            'deployment-guide/aws/extensions',
+            'deployment-guide/aws/elasticsearch-kibana-upgrade',
+            {
+              type: 'category',
+              label: 'Extensions (Optional)',
+              link: {
+                type: 'doc',
+                id: 'deployment-guide/aws/extensions/extensions-overview',
+              },
+              collapsed: true,
+              items: [
+                'deployment-guide/aws/extensions/litellm-proxy',
+                'deployment-guide/aws/extensions/assistants-evaluation',
+                'deployment-guide/aws/extensions/ai-code-explorer',
+                'deployment-guide/aws/extensions/angular-upgrade-assistant',
+                'deployment-guide/aws/extensions/salesforce-devforce-ai',
+              ],
+            },
           ],
         },
         {

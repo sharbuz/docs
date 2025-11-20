@@ -84,8 +84,8 @@ Versions for Docker containers and Helm releases are matching
 
 Choose your preferred deployment method:
 
-- **[Scripted Deployment](./scripted-deployment.md)** - Automated deployment using helm-charts.sh script
-- **[Manual Deployment](./manual-deployment.md)** - Step-by-step manual component installation
+- **[Scripted Deployment](./scripted-deployment)** - Automated deployment using helm-charts.sh script
+- **[Manual Deployment](./manual-deployment/)** - Step-by-step manual component installation
 
 ## Finalizing Installation
 
@@ -104,4 +104,4 @@ Some components may be missing depending on your setup configuration or use `htt
 
 ## Next Steps
 
-After successful components deployment, proceed to [Post-Installation Configuration](../06-post-installation.md) to complete required setup steps.
+After successful components deployment, proceed to [Post-Installation Configuration](../post-installation/) to complete required setup steps.

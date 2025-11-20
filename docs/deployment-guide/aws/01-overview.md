@@ -41,19 +41,23 @@ Deploy AWS infrastructure using Terraform, including EKS cluster, networking, an
 
 Install and configure all AI/Run CodeMie application components on your EKS cluster.
 
-### [Post-Installation Configuration](./06-post-installation.md)
+### [Post-Installation Configuration](./post-installation/)
 
 Complete required and optional configuration steps after deployment.
 
-### [AI Models Integration](./07-ai-models-integration.md)
+### [AI Models Integration](./ai-models-integration/)
 
 Configure LLM and embedding models from various providers.
 
-### [Update AI/Run CodeMie](./08-update.md)
+### [Update AI/Run CodeMie](./09-update.md)
 
 Learn how to update your AI/Run CodeMie installation.
 
-### [Extensions](./09-extensions.md)
+### [Elasticsearch and Kibana Upgrade](./08-elasticsearch-kibana-upgrade.md)
+
+Upgrade guide for Elasticsearch and Kibana components (8.14.2 → 8.18.4).
+
+### [Extensions](./extensions/)
 
 Optional extensions and additional features you can enable.
 

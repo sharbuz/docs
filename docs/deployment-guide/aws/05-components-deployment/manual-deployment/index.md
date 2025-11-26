@@ -23,9 +23,8 @@ This guide covers installation of the following components in order:
 
 2. **[Data Layer](./data-layer)**
    - Elasticsearch
-   - Kibana
    - Postgres-operator
-   - PostgreSQL
+   - PostgreSQL secret for RDS
 
 3. **[Security and Identity](./security-and-identity)**
    - Keycloak-operator
@@ -42,8 +41,9 @@ This guide covers installation of the following components in order:
    - MCP Connect
    - Mermaid Server
 
-6. **[Observability](./observability)** (optional)
+6. **[Observability](./observability)**
    - Fluentbit
+   - Kibana
    - Kibana Dashboards
 
 ## Prerequisites Setup

@@ -37,11 +37,11 @@ These settings control fundamental application behavior, deployment environment,
 
 Converts Mermaid diagram syntax to images for documentation and visualizations.
 
-| Parameter                 | Type    | Default                   | Description                                                                                        |
-| ------------------------- | ------- | ------------------------- | -------------------------------------------------------------------------------------------------- |
-| `MERMAID_SERVER_URL`      | string  | `"http://localhost:8082"` | Local Mermaid rendering service URL for diagram generation                                         |
-| `MERMAID_SERVER_TIMEOUT`  | integer | `50`                      | Max seconds to wait for diagram rendering before timeout                                           |
-| `MERMAID_USE_MERMAID_INC` | boolean | `false`                   | Use public Mermaid Inc. service (requires outboud internet connection) or locally installed server |
+| Parameter                 | Type    | Default                   | Description                                                                                         |
+| ------------------------- | ------- | ------------------------- | --------------------------------------------------------------------------------------------------- |
+| `MERMAID_SERVER_URL`      | string  | `"http://localhost:8082"` | Local Mermaid rendering service URL for diagram generation                                          |
+| `MERMAID_SERVER_TIMEOUT`  | integer | `50`                      | Max seconds to wait for diagram rendering before timeout                                            |
+| `MERMAID_USE_MERMAID_INC` | boolean | `false`                   | Use public Mermaid Inc. service (requires outbound internet connection) or locally installed server |
 
 ### Agent-to-Agent (A2A) Communication
 
@@ -527,7 +527,7 @@ Connect to external LiteLLM proxy for advanced features like load balancing and 
 
 ### LiteLLM Model Tagging
 
-Tag LLM requests for cost tracking, usage analytics, and chargeback allocation.
+Tag LLM requests for cost tracking and usage analytics.
 
 | Parameter                        | Type   | Default     | Description                                                  |
 | -------------------------------- | ------ | ----------- | ------------------------------------------------------------ |

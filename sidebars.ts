@@ -346,39 +346,101 @@ const sidebars: SidebarsConfig = {
               label: 'Architecture',
             },
             {
-              type: 'doc',
-              id: 'deployment-guide/gcp/infrastructure-deployment',
+              type: 'category',
               label: 'Infrastructure Deployment',
+              link: {
+                type: 'doc',
+                id: 'deployment-guide/gcp/infrastructure-deployment/infrastructure-deployment-overview',
+              },
+              collapsed: true,
+              items: [
+                'deployment-guide/gcp/infrastructure-deployment/infrastructure-manual-deployment',
+              ],
             },
             {
-              type: 'doc',
-              id: 'deployment-guide/gcp/components-overview',
-              label: 'Components Overview',
+              type: 'category',
+              label: 'Components Deployment',
+              link: {
+                type: 'doc',
+                id: 'deployment-guide/gcp/components-deployment/components-deployment-overview',
+              },
+              collapsed: true,
+              items: [
+                'deployment-guide/gcp/components-deployment/components-scripted-deployment',
+                'deployment-guide/gcp/components-deployment/components-manual-deployment',
+              ],
             },
             {
-              type: 'doc',
-              id: 'deployment-guide/gcp/scripted-installation',
-              label: 'Scripted Installation',
-            },
-            {
-              type: 'doc',
-              id: 'deployment-guide/gcp/manual-installation',
-              label: 'Manual Installation',
-            },
-            {
-              type: 'doc',
-              id: 'deployment-guide/gcp/post-installation',
+              type: 'category',
               label: 'Post-Installation',
+              link: {
+                type: 'doc',
+                id: 'deployment-guide/gcp/post-installation/post-installation-overview',
+              },
+              collapsed: true,
+              items: [
+                {
+                  type: 'category',
+                  label: 'User Configuration',
+                  link: {
+                    type: 'doc',
+                    id: 'deployment-guide/gcp/post-installation/user-configuration/user-configuration-overview',
+                  },
+                  collapsed: true,
+                  items: [
+                    'deployment-guide/gcp/post-installation/user-configuration/initial-realm-setup',
+                    {
+                      type: 'category',
+                      label: 'User Provisioning',
+                      link: {
+                        type: 'doc',
+                        id: 'deployment-guide/gcp/post-installation/user-configuration/user-provisioning/user-provisioning-overview',
+                      },
+                      collapsed: true,
+                      items: [
+                        'deployment-guide/gcp/post-installation/user-configuration/user-provisioning/manual-creation',
+                        'deployment-guide/gcp/post-installation/user-configuration/user-provisioning/keycloak-assistant',
+                        'deployment-guide/gcp/post-installation/user-configuration/user-provisioning/keycloak-entra-id',
+                        'deployment-guide/gcp/post-installation/user-configuration/user-provisioning/entra-id-only',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'User Authorization',
+                      link: {
+                        type: 'doc',
+                        id: 'deployment-guide/gcp/post-installation/user-configuration/user-authorization/user-authorization-overview',
+                      },
+                      collapsed: true,
+                      items: [
+                        'deployment-guide/gcp/post-installation/user-configuration/user-authorization/assign-roles',
+                        'deployment-guide/gcp/post-installation/user-configuration/user-authorization/assign-attributes',
+                      ],
+                    },
+                    'deployment-guide/gcp/post-installation/user-configuration/platform-administration',
+                  ],
+                },
+                'deployment-guide/gcp/post-installation/datasources-configuration',
+                'deployment-guide/gcp/post-installation/ui-customization',
+              ],
             },
             {
-              type: 'doc',
-              id: 'deployment-guide/gcp/ai-models',
+              type: 'category',
               label: 'AI Models Integration',
+              link: {
+                type: 'doc',
+                id: 'deployment-guide/gcp/ai-models-integration/ai-models-integration-overview',
+              },
+              collapsed: true,
+              items: [
+                'deployment-guide/gcp/ai-models-integration/aws-bedrock',
+                'deployment-guide/gcp/ai-models-integration/azure-openai',
+              ],
             },
             {
               type: 'doc',
-              id: 'deployment-guide/gcp/maintenance',
-              label: 'Maintenance',
+              id: 'deployment-guide/gcp/update-version',
+              label: 'Update Version',
             },
           ],
         },
@@ -407,12 +469,16 @@ const sidebars: SidebarsConfig = {
             'deployment-guide/additional-resources/elasticsearch-kibana-upgrade',
           ],
         },
+        {
+          type: 'doc',
+          id: 'deployment-guide/faq',
+          label: 'FAQ',
+        },
       ],
     },
   ],
 };
 
-// Use the same sidebar for all sections
 sidebars.userGuideSidebar = sidebars.mainSidebar;
 sidebars.deploymentGuideSidebar = sidebars.mainSidebar;
 

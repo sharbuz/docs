@@ -188,12 +188,22 @@ words:
   - tiktoken
   - Uvicorn
   - Pydantic
+  # Python/Programming methods
+  - startswith
+  - endswith
+  - endfor
   # Variable names (common patterns)
   - BCRYPTED
   - NSEED
   - XSEED
   - nseed
   - xseed
+  - mypassword
+  # Hex colors
+  - ededed
+  # Google Drive
+  - GDRIVE
+  - gdrive
   # Other
   - readonly
   - stateful
@@ -214,6 +224,10 @@ words:
   - AITOOLS
   - hotfixes
   - llms
+  - runbooks
+  - streamable
+  - finalizer
+  - qubit
 # Ignore RegExp patterns (for things like URLs, version numbers, etc.)
 ignoreRegExpList:
   # Ignore hex colors

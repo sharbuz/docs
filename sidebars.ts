@@ -32,9 +32,37 @@ const sidebars: SidebarsConfig = {
           label: 'Working With Assistants',
         },
         {
-          type: 'doc',
-          id: 'user-guide/workflows/index',
+          type: 'category',
           label: 'Workflows',
+          link: {
+            type: 'doc',
+            id: 'user-guide/workflows/index',
+          },
+          collapsed: true,
+          items: [
+            {
+              type: 'category',
+              label: 'Workflow Configuration',
+              link: {
+                type: 'doc',
+                id: 'user-guide/workflows/configuration/workflow-configuration-overview',
+              },
+              collapsed: true,
+              items: [
+                'user-guide/workflows/configuration/introduction',
+                'user-guide/workflows/configuration/configuration-reference',
+                'user-guide/workflows/configuration/workflow-states',
+                'user-guide/workflows/configuration/state-transitions',
+                'user-guide/workflows/configuration/context-management',
+                'user-guide/workflows/configuration/advanced-features',
+                'user-guide/workflows/configuration/specialized-nodes',
+                'user-guide/workflows/configuration/integration-capabilities',
+                'user-guide/workflows/configuration/best-practices',
+                'user-guide/workflows/configuration/examples',
+                'user-guide/workflows/configuration/troubleshooting',
+              ],
+            },
+          ],
         },
         {
           type: 'doc',

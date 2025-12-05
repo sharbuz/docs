@@ -688,6 +688,29 @@ When `LANGFUSE_TRACES` is enabled, you must also set the following environment v
 - `LANGFUSE_HOST` - Langfuse instance URL (cloud or self-hosted)
   :::
 
+### Memory Profiling
+
+Track memory usage and identify memory leaks during application runtime using Python's tracemalloc module.
+
+| Parameter                           | Type    | Default              | Description                                                                       |
+| ----------------------------------- | ------- | -------------------- | --------------------------------------------------------------------------------- |
+| `MEMORY_PROFILING_ENABLED`          | boolean | `false`              | Enable tracemalloc and psutil based memory profiling                              |
+| `MEMORY_PROFILING_INTERVAL_MINUTES` | integer | `10`                 | Interval between automatic snapshots (in minutes)                                 |
+| `MEMORY_PROFILING_DETAIL_LEVEL`     | string  | `"file"`             | Detail level: "file" (fast, groups by file) or "line" (slower, shows exact lines) |
+| `MEMORY_PROFILING_SNAPSHOT_PREFIX`  | string  | `"memory_snapshots"` | Prefix path for snapshot storage location                                         |
+
+:::info
+Memory profiling uses Python's built-in tracemalloc module to capture memory allocation snapshots at regular intervals. Choose detail level based on your needs:
+
+- file: Faster, groups memory usage by file (recommended for production debugging)
+- line: Slower, shows exact line numbers (use for detailed analysis in development)
+  :::
+
+:::warning
+Memory profiling adds CPU overhead and should be used cautiously in production environments. The file detail level has lower performance impact compared to line. Consider
+increasing the interval (e.g., 30-60 minutes) for production use to minimize resource consumption.
+:::
+
 ---
 
 ## Environment-Specific Configuration

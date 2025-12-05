@@ -192,6 +192,8 @@ words:
   - startswith
   - endswith
   - endfor
+  - tracemalloc
+  - psutil
   # Variable names (common patterns)
   - BCRYPTED
   - NSEED

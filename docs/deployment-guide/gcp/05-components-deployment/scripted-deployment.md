@@ -203,7 +203,7 @@ Below is an example demonstrating how to run the script:
 
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS=key.json
-gcloud auth application-default print-access-token | helm registry login -u oauth2accesstoken --password-stdin https://europe-west3-docker.pkg.dev
+gcloud auth application-default print-access-token | helm registry login -u oauth2accesstoken --password-stdin europe-west3-docker.pkg.dev
 
 bash helm-charts.sh --cloud gcp --version x.y.z --mode all
 ```

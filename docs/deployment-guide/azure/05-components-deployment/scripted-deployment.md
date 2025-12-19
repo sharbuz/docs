@@ -91,7 +91,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=key.json
 
 # Login to registry
 gcloud auth application-default print-access-token | \
-  helm registry login -u oauth2accesstoken --password-stdin https://europe-west3-docker.pkg.dev
+  helm registry login -u oauth2accesstoken --password-stdin europe-west3-docker.pkg.dev
 ```
 
 ### Step 4: Get Latest CodeMie Version

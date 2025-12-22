@@ -15,7 +15,12 @@ const config: Config = {
   projectName: 'docs',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
@@ -86,7 +91,7 @@ const config: Config = {
         {
           to: 'deployment-guide/',
           position: 'left',
-          label: 'Deployment Guides',
+          label: 'Administration',
         },
         {
           type: 'docsVersionDropdown',
@@ -110,11 +115,7 @@ const config: Config = {
               to: 'user-guide/',
             },
             {
-              label: 'Administrator Guides',
-              to: 'admin-guide/',
-            },
-            {
-              label: 'Deployment Guides',
+              label: 'Administration',
               to: 'deployment-guide/',
             },
           ],
